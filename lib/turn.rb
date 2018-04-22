@@ -32,6 +32,14 @@ def position_taken?(board, index)
   end
 end
 
-def turn(input)
-  puts "Please enter 1-9"
+def turn(board)
+  puts "Please enter 1-9:"
+  turn = 1
+  until turn == 9
+  input = gets.chomp
+  input_to_index(input)
+  move(array, index, character = "X")
+  valid_move?(board, index)
+  turn += 1
+end
 end
