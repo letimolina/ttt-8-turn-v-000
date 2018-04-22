@@ -10,8 +10,8 @@ def input_to_index(input)
   input.to_i - 1
 end
   
-def move(array, index, character = "X")
-  array[index] = character
+def move(board, index, character = "X")
+  board[index] = character
 end
 
 def valid_move?(board, index)
@@ -33,13 +33,23 @@ def position_taken?(board, index)
 end
 
 def turn(board)
-  puts "Please enter 1-9:"
+ puts "Please enter 1-9:"
   turn = 1
-  until turn == 9
-  input = gets.chomp
-  input_to_index(input)
-  move(array, index, character = "X")
-  valid_move?(board, index)
+  input = gets.strip
+  index = board[input_to_index(input)]
+ if valid_move?(board, index) == true
+   move(board, index, character = "X")
+   display_board(board)
+ else until turn == 9
+   input = gets.strip
   turn += 1
 end
 end
+end
+# get input
+# convert input to index
+# if index is valid
+#   make the move for input
+# else
+#   ask for input again until you get a valid input
+# end
