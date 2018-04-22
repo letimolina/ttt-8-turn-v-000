@@ -39,10 +39,8 @@ def turn(board)
  if valid_move?(board, index) == true
    move(board, index, character = "X")
    display_board(board)
- else turn == 9
+ else 
    turn(board)
-  turn += 1
-end
 end
 end
 # get input
